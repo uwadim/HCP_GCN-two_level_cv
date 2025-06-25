@@ -1,0 +1,19 @@
+# Configuration file containing general parameters for models
+
+# Set the initial state for generating random numbers
+random_state: 17
+
+# Number of training epochs
+max_epochs: 50
+
+# Early stopping to control overfitting (not used for this work)
+stoping:
+  # Number of epochs to wait of decreasing of test loss before early stop
+  patience: 100
+  verbose: true
+  delta: 0.01
+  path: '${hydra:runtime.output_dir}/checkpoint.pt'
+
+defaults:
+  - model: skipgcn
+  - _self_

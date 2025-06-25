@@ -1,0 +1,19 @@
+# Configuration file for the RELATIONAL dataset
+# for two level cross-validation strategy in simple mode
+
+# Path to the archive with the dataset
+download_url: '../HCP/${..dataset_type}/RELATIONAL.zip'
+
+# Path to the archive with the original data (before building the graph)
+# for adding features to the vertices of the correlation graphs
+untouched_url: '../HCP/merged_contrast/RELATIONAL.zip'
+
+# Name of the folder to which we will unpack the archive with the dataset
+root: 'relational'
+
+# Encoding of graph labels from the file name
+# 1- corresponds to the desired mode
+# 0- corresponds to the background
+labels:
+  'match': 1
+  'relation': 0

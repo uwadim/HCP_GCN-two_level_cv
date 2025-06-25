@@ -1,0 +1,46 @@
+#Configuration file describing general parameters for all datasets only for correlation graphs.
+# work with for two level cross-validation strategy in complex mode
+## - use all of 4 options of data division
+## Work with train_valid_2l_corr.yaml
+
+# Dataset type: Correlation or synolytic graphs
+# The value of dataset_type must be equal to the name of the folder in which the archives are located
+# uncomment proper dataset_type
+dataset_type: 'correlation_graphs'
+
+# Number of folder (change it via sweeper)
+folder_num: 0
+# Root path to the data sources for all datasets
+root_source_dir: '../HPC_data_v3/pearson_cross_correlation'
+
+#${condition:true_value,false_value}<
+
+# Path to the mean values for correlation graphs, used as node features
+correlation_means_root_path: '../HPC_data_v3/mean'
+
+# Path to the directory with the dataset relative to the program's working directory
+root_path: './data/${.dataset_type}/${data.dataset.root}'
+
+# Data encoding type: LR or RL, included in file names from archives
+# For training/testing, you must select one encoding type (LR or RL)
+coding_type: 'RL'
+
+# Separator used in CSV file
+sep: ','
+
+# Column names with edge indices
+edges_colnames:
+  - 'vertex1'  # from
+  - 'vertex2'  # to
+
+# Name of the column with edge weights in the CSV file
+weights_colname: 'edge_weight'
+
+# train ids if best hyperparameters has been found
+train_valid_ids_path: '../HPC_data_v3/ensemble_edges/fold${.folder_num}/train_ids.txt'
+
+# identifiers for testing
+test_ids_path: '../HPC_data_v3/ensemble_edges/fold${.folder_num}/test_ids.txt'
+
+defaults:
+  - dataset: emotion_2l

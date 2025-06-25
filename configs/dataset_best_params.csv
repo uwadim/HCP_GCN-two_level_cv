@@ -1,0 +1,15 @@
+dataset,dataset_type,hidden_channels,dropout
+emotion,correlation_graphs,27,0.1
+emotion,ensemble_graphs,28,0.1
+gambling,correlation_graphs,8,0.25
+gambling,ensemble_graphs,14,0.45
+language,correlation_graphs,14,0.45
+language,ensemble_graphs,14,0.45
+motor,correlation_graphs,15,0.15
+motor,ensemble_graphs,19,0.25
+relational,correlation_graphs,12,0.05
+relational,ensemble_graphs,27,0.15
+social,correlation_graphs,28,0.05
+social,ensemble_graphs,30,0.05
+wm,correlation_graphs,10,0.3
+wm,ensemble_graphs,27,0.55

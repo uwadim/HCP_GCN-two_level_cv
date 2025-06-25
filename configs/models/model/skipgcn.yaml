@@ -1,0 +1,14 @@
+# Configuration file for the SkipGCN model
+name: SkipGCN
+learning_rate: 0.001
+early_stopping: False
+
+params:
+  # batch size
+  batch_size: 32
+  # Embedding size for graph vertex
+  hidden_channels: 15
+  # Probability for dropout
+  dropout: 0.2
+  # Global pooling type: global_max_pool (default), global_mean_pool
+  pooling_type: 'global_max_pool'  # 'global_mean_pool'

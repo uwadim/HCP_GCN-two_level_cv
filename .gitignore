@@ -1,0 +1,78 @@
+# Игнорируем файлы и папки Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Игнорируем файлы IDE и редакторов
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# Игнорируем виртуальные окружения
+venv/
+env/
+.venv/
+.env/
+ENV/
+
+# Игнорируем файлы настроек и кэша
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.nox/
+.coverage
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+.mypy_cache/
+.python-version
+
+# Игнорируем логи и временные файлы
+*.log
+*.sqlite
+*.sql
+*.db
+*.dump
+
+# Игнорируем Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# Игнорируем системные файлы
+.DS_Store
+Thumbs.db
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+# Project folders
+/data/
+hp_search/
+mlruns/
+multirun/
+logs/
+notebooks/
+.hydra/
+.idea/

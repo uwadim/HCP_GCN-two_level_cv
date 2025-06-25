@@ -1,0 +1,19 @@
+# Configuration file for the LANGUAGE dataset
+# for two level cross-validation strategy in simple mode
+
+# Path to the archive with the dataset
+download_url: '../HCP/${..dataset_type}/LANGUAGE.zip'
+
+# Path to the archive with the original data (before building the graph)
+# for adding vertex features to correlation graphs
+untouched_url: '../HCP/merged_contrast/LANGUAGE.zip'
+
+# Name of the folder to which we will unpack the archive with the dataset
+root: 'language'
+
+# Encoding of graph labels from the file name
+# 1- corresponds to the desired mode
+# 0- corresponds to the background
+labels:
+  'math': 1
+  'story': 0

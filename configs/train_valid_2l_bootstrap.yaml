@@ -1,0 +1,48 @@
+# Configuration file for calculation of metrics.
+# Work with for two level cross-validation strategy in complex mode
+# - use all of 4 options of data division
+#################
+# run: python main_2l_train_valid.py -m -cn train_valid_2l_bootstrap
+#################
+
+# The percentile of the absolute value of the graph weights to drop from the graphs
+# Value in percents
+drop_percentile: 0
+
+# Each time rebuild processed files (potentially new part of dropped edges)
+rebuild_processed: True
+
+filtering_search: True
+
+mlflow:
+  # Experiment name for MLFlow: "model name"_"dataset type"_"dataset name"_"data encoding type"
+  experiment_name: 'train_valid_bootstrap_${data.dataset_type}_${data.dataset.root}_${data.coding_type}'
+  # Path to MLFlow tracking DataBase file
+  tracking_uri: 'sqlite:///${hydra:runtime.cwd}/mlflow/mlruns_2l.db'
+  # Save examples of conjugacy matrices
+  save_adjacency_matrices: True
+  # Take the number of elements from max(len, max_elements)
+  # If the sample length is greater than max_elements, then sample max_elements with random values
+  max_elements: 5
+  # Name of seaborn palette for rendering adjacency matrices
+  palette_name: 'coolwarm'
+
+hydra:
+  sweep:
+    dir: 'train_valid_bootstrap/${now:%Y-%m-%d}/${now:%H-%M-%S}'
+    subdir: '${hydra.job.num}'
+  sweeper:
+    params:
+      # Change the dataset name to run the experiment for each dataset
+      data/dataset: choice(wm_2l)
+      data.folder_num: range(0, 4)
+      # data.dataset_type: choice('correlation_graphs') #choice('correlation_graphs','ensemble_graphs')
+      models.random_state: range(1, 11)
+
+defaults:
+  - data: simple_2l
+  - models: config
+  - override hydra/sweeper: basic
+  - override hydra/launcher: basic
+  # Config from this file override the values of configs from the Defaults List
+  - _self_
